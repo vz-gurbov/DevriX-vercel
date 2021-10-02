@@ -1,0 +1,71 @@
+// Main font
+@mixin main-font {
+    font-family: 'Roboto', sans-serif;
+}
+
+// Navigation
+@mixin nav-links {
+    @include main-font;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 19px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: $black;
+    text-decoration: none
+}
+
+@mixin nav-links-active {
+    @include nav-links; 
+    font-weight: 700;
+}
+
+@mixin nav-links-bottom {
+    @include main-font;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 19px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: $white;
+}
+
+// News
+@mixin news-heading {
+    @include main-font;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 26px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: $black;
+}
+
+@mixin news-dates {
+    @include news-heading;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 20.8px;
+}
+
+@mixin article-dates {
+    @include news-dates;
+    font-size: 14px;
+}
+
+// Hero 
+
+@mixin featured {
+    @include news-dates;
+    font-weight: 800;
+}
+
+@mixin hero-articles {
+    @include news-heading;
+    font-weight: 500;
+    line-height: 26px;
+}
+

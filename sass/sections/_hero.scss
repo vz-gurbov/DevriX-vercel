@@ -1,0 +1,166 @@
+.hero {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+
+    &__featured {
+        display: flex;
+        flex-direction: column;
+
+        &--image {
+            padding: 50px 50px 50px 0;
+            position: relative;
+        }
+
+        &--image::before {
+            content: "";
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            right: 40%;
+            top: 0;
+            background: url("media/hero-background.jpg");
+            background-size: contain;
+            background-repeat: no-repeat;       
+            z-index: -1;
+        }
+
+        &--button {
+            @include featured;
+            position: absolute;
+            bottom: 50px;
+            left: 0;
+            background-color: $light-grey;
+            padding: 10px 10px 10px 30px;
+            border-radius: 0 5px;
+        }
+
+        &--button::before {
+            content: "";
+            width: 20px;
+            height: 20px;
+            position: absolute;
+            left: 5%;
+            background: url("media/star-icon.svg");
+            background-size: contain;
+            background-repeat: no-repeat;
+        }
+    }
+    
+    &__news {
+
+        padding: 20px 0 50px 0;
+
+        &--heading {
+            @include featured;
+            padding-top: 20px;
+            font-size: 34px;
+            line-height: 40px;
+        }
+
+        &--paragraph {
+            @include nav-links;
+            padding: 14.5px 0;
+            line-height: 24px;
+            max-width: 600px;
+        }
+    }
+
+    &__latest {
+        display: flex;
+        flex-direction: column;
+
+        &--heading {
+            padding-top: 50px;
+            @include featured;
+            font-size: 16px;
+        }
+    }
+
+    &__article {
+        
+        display: flex;
+        flex-direction: column;
+        padding: 25px 0;
+
+        &--heading {
+            @include hero-articles;
+            padding-bottom: 10px;
+            padding-left: 15px;
+            position: relative;
+        }
+
+        &--heading::before {
+            content: "";
+            width: 6px;
+            height: 80%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-color: $light-red;
+        }
+
+        &--heading::after {
+            content: "";
+            width: 100%;
+            height: 1px;
+            position: absolute;
+            top: -25px;
+            left: 0;
+            background-color: $light-grey;
+        }
+
+
+        &--paragraph {
+            @include article-dates;
+            padding-left: 15px;
+        }
+    }
+
+}
+
+@media screen and (max-width: 1300px) {
+    .hero {
+        flex-direction: column;
+        align-items: center;
+        padding: 0 5%;
+        overflow: hidden;
+
+
+
+        &__article {
+            width: 100%;
+            flex-wrap: wrap;
+        }
+
+        &__featured {
+            padding: 15%;
+            max-width: 100%;
+
+            &--button {
+                bottom: 0;
+            }
+            
+            &--image {
+                padding: 0px;
+                max-width: 100%;
+                height: auto;
+            }
+
+            &--image::before {
+                display: none;
+            }
+        }
+        &__news {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 0;
+
+            & > button {
+                max-width: 120px;
+            }
+        }
+    }    
+}
+

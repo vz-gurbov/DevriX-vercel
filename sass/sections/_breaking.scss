@@ -1,0 +1,165 @@
+.breaking {
+    display: grid;
+    grid-gap: 8px;
+    max-height: 450px;
+
+    &__article {
+
+        border: 1px solid $light-grey;
+        border-radius: 5px;
+        padding: 30px 50px;
+
+        &--heading {
+            @include news-heading;
+            padding-bottom: 18px;
+        }
+
+        &--date {
+            @include news-dates;
+        }
+
+        &--first {
+            grid-column: 1/2;
+            grid-row: 1/2;
+        }
+
+        &--second {
+            grid-column: 2/3;
+            grid-row: 1/2;
+        }
+
+        &--third {
+            grid-column: 1/2;
+            grid-row: 2/3;
+        }
+
+        &--fourth {
+            grid-column: 2/3;
+            grid-row: 2/3;
+        }
+    }
+}
+
+.breaking {
+    &__article {
+        transition: 0.2s ease-out;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        position: relative;
+
+        &--image {
+            grid-column: 3/4;
+            grid-row: 1/3;
+            position: relative;
+
+            & > img {
+                width: 200%;
+            }
+        }
+
+        &--button {
+            @include featured;
+            position: absolute;
+            background-color: $light-grey;
+            padding: 10px 10px 10px 30px;
+            border-radius: 0 5px;
+            top: 0;
+            left: 0;
+        }
+
+        &--button::before {
+            content: "";
+            width: 20px;
+            height: 20px;
+            position: absolute;
+            left: 5%;
+            background: url("/media/red-arrow.svg");
+            background-size: contain;
+            background-repeat: no-repeat;
+        }
+
+        &--heading,
+        &--paragraph {
+            transition: 0.2s ease-out;
+        }
+    }
+
+    &__article:hover {
+        background-color: $light-red;
+        cursor: pointer;
+        transition: 0.2s ease-in;
+    }
+}
+
+
+// Hover effect
+.breaking__article:hover .breaking__article--heading,
+.breaking__article:hover .breaking__article--paragraph {
+    color: $white;
+    transition: 0.2s ease-in;
+}
+
+.breaking__article::before {
+    content: "";
+    width: 90%;
+    height: 150px;
+    left: 5%;
+    position: absolute;
+    border: 1px solid $white;
+    border-radius: 3px;
+}
+
+
+@media screen and (max-width: 1300px) {
+    .breaking {
+        margin-top: 100px;
+        row-gap: 60px;
+        max-height: none;
+        padding: 0 15%;
+
+        &__article {
+
+            width: 80%;
+            
+            &--first {
+                grid-column: 1/4;
+                grid-row: 1/2;
+            }
+
+            &--second {
+                grid-column: 1/4;
+                grid-row: 2/3;
+            }
+
+            &--third {
+                grid-column: 1/4;
+                grid-row: 3/4;
+            }
+
+            &--fourth {
+                grid-column: 1/4;
+                grid-row: 4/5;
+            }
+            &--fifth {
+                grid-column: 1/4;
+                grid-row: 5/6;
+            }
+
+            &--image > img {
+                    width: 100%;
+            }
+        }
+    }
+}
+
+// Mobile Elements Fixes
+
+@media screen and (max-width: 425px) {
+    .breaking {
+        padding: 0;
+        &__article {
+            width: 65%;
+        }
+    }
+}

@@ -1,0 +1,142 @@
+.footer {
+    background-color: $light-red;
+
+    &__row {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        position: relative;
+        padding: 12.5px 0;
+    }
+
+    &__logo {
+        margin-right: 50px;
+        position: relative;
+        z-index: 1;
+    }
+
+    &__container {
+        max-width: 1230px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 40px 0;
+    }
+
+    &__logo::after {
+        content: "";
+        width: 40px;
+        height: 40px;
+        background-color: $red;
+        position: absolute;
+        top: -25%;
+        left: -125%;
+        z-index: -1;
+        border-radius: 50px;
+    }
+
+    &__socials,
+    &__social {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    &__copyright {
+        @include news-dates;
+        color: white;
+        padding-right: 26px;
+    }
+
+    &__nav {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    &__logo > h2 {
+        @include hero-articles;
+        color: $white;
+    }
+
+    &__nav {
+        &--link {
+            position: relative;
+            padding: 0 20px;
+            @include nav-links;
+            color: $white;
+        }
+        &--link::after {
+            content: "";
+            width: 1px;
+            height: 80%;
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            background-color: $white;
+        }
+        &--link:last-child::after {
+            display: none;
+        }
+    }
+}
+
+
+@media screen and (max-width: 1260px) {
+    .footer {
+    padding: 0 5%;
+    }
+}
+
+
+@media screen and (max-width: 1120px) {
+    .footer {
+        &__nav {
+            display: flex;
+            flex-direction: column;
+            
+            &--link {
+                padding: 5% 0;
+            }
+
+            &--link::after {
+                height: 100%;
+                left: -10%;
+            }
+
+            &--link:last-child::after {
+                display: block;
+            }
+        }
+
+        &__row {
+            display: flex;
+            flex-direction: row;
+        }
+    }
+}
+
+@media screen and (max-width: 620px) {
+    .footer {
+        &__socials {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+    }
+}
+
+
+@media screen and (max-width: 475px) {
+    .footer {
+        &__container {
+            display: flex;
+            flex-direction: column;
+        }
+
+        &__row {
+            padding: 10%;
+        }
+    }
+}

@@ -1,0 +1,46 @@
+.sex {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    
+    &__article {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        & > img {
+            margin-bottom: 18px;
+        }
+
+        &--space {
+            padding: 0 34px;
+        }
+
+        &--heading {
+            @include news-heading;
+            padding-bottom: 18px;
+        }
+
+        &--date {
+            @include news-dates;
+        }
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .sex {
+        padding: 0 15%;
+        flex-direction: column;
+        &__article {
+            margin: 15% 0;
+        }
+
+        &__article {
+            width: 100%;
+
+            &--space {
+                padding: 0;
+            }
+        }
+    }
+}

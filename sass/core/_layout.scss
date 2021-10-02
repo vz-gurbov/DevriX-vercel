@@ -1,0 +1,120 @@
+.main {
+    max-width: 1230px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+// Fonts
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,300&display=swap');
+
+// Buttons
+.social_button {
+    @include main-font;
+    border: none;
+    border-radius: 5px;
+    background-color: $black;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 19px;
+    letter-spacing: 0em;
+    color: $white;
+    padding: 11.2px 14px;
+}
+
+// Latest articles button
+
+.latest {
+    &__button {
+        @include nav-links-active;
+        position: relative;
+        left: 65%;
+    }
+
+    &__button::after {
+        content: "";
+        width: 15px;
+        height: 15px;
+        position: absolute;
+        background: url("/media/arrow-icon.svg");
+        background-size: contain;
+        background-repeat: no-repeat;
+        bottom: 0;
+        top: 0;
+        left: 140px;
+    }
+
+    &__button--news {
+        left: 0;
+        margin-top: 30px;
+    }
+
+    &__button--news::after {
+        bottom: 0;
+        top: 3px;
+        left: 210px;
+    }
+
+    &__button--technology {
+        left: 0;
+        margin-top: 30px;
+    }
+
+    &__button--technology::after {
+        top: 3px;
+        left: 210px;
+    }
+}
+
+
+
+// The section heading
+.section__heading {
+    @include featured;
+    font-size: 20px;
+    line-height: 23.87px;
+    margin-top: 7px;
+    padding-bottom: 23px;
+}
+
+// Top border of each container
+
+.container__top--border {
+    padding: 54px 0;
+    position: relative;
+}
+
+.container__top--border::before {
+    content: "";
+    width: 100%;
+    height: 5px;
+    position: absolute;
+    background-color: $light-red;
+}
+
+@media screen and (max-width: 1300px) {
+    .container__top--border {
+        width: 100%;
+        margin: 0 auto;
+        padding: 0;
+    }
+
+    .container__top--border::before {
+        display: none;
+    }
+
+    .main {
+        padding: 0;
+    }
+
+    .section__heading { 
+        position: absolute; 
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .latest__button {
+        left: 0;
+    }
+}
+
